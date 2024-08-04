@@ -1,0 +1,54 @@
+﻿@model Dto.LoginDto
+
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Login, Authentication, Responsive Web Template">
+    <title>Education Portal - Login</title>
+    <link href="~/register/css/popuo-box.css" rel="stylesheet" type="text/css">
+   
+    <link href="~/css/login.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1>Education Portal Login Page</h1>
+    <div class="w3layoutscontaineragileits">
+        <h2>Login</h2>
+        <form method="post">
+            <input type="text" asp-for="Username" placeholder="Kullanıcı Adınız" required>
+            <input type="password" asp-for="Password" placeholder="Şifreniz" required>
+            <div class="text-white" asp-validation-summary="ModelOnly"></div>
+            <div class="aitssendbuttonw3ls">
+                <input type="submit" value="Giriş Yap">
+                <p>Yeni Üye Mi? <a href="Register/Index.cshtml">Kayıt Olun</a></p>
+            </div>
+        </form>
+    </div>
+    <script src="~/register/js/jquery-2.1.4.min.js"></script>
+    <script src="~/register/js/jquery.magnific-popup.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+        });
+    </script>
+</body>
+
+</html>

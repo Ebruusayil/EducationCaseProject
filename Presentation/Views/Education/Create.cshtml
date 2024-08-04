@@ -1,0 +1,72 @@
+﻿@model Dto.EducationDto
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eğitim Tanım Ekranı</title>
+    <link href="~/css/EducationCreate.css" rel="stylesheet" />
+   
+</head>
+
+<body>
+    <h1>Eğitim Tanım Ekranı</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <form method="post">
+        <div>
+            <label for="Name">Eğitim Adı:</label>
+            <input type="text" asp-for="Name" placeholder="Eğitim Adı" required />
+        </div>
+
+        <div>
+            <label for="Quota">Kontenjan:</label>
+            <input type="number" asp-for="Quota" placeholder="Kontenjan Sayısı" required />
+        </div>
+
+        <div>
+            <label for="Price">Fiyat:</label>
+            <input type="number" asp-for="Price" placeholder="Fiyat" step="0.01" required />
+        </div>
+
+        <div>
+            <label for="Duration">Süre (Saat/Dakika):</label>
+            <input type="time" asp-for="Duration" required />
+        </div>
+
+        <div>
+            <label for="InstructorTypeId">Eğitmen Türü ID:</label>
+            <input type="number" asp-for="InstructorId" placeholder="Eğitmen ID" required />
+        </div>
+
+        <div>
+            <label for="CategoryId">Kategori:</label>
+            <select asp-for="CategoryId" asp-items="ViewBag.Categories">
+                <option value="">Kategori Seçin</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="submit">Eğitim Tanımla</button>
+        </div>
+        <div class="button-container">
+            <a href="@Url.Action("Index", "Education")" class="btn btn-primary">Eğitim Listesi</a>
+        </div>
+
+    </form>
+</body>
+
+</html>

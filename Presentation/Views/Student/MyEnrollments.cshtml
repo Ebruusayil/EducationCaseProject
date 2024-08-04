@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Dto.EducationDto>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/education.css" rel="stylesheet" />
+
+<h2>Kaydolduğum Eğitimler</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Adı</th>
+            <th>Kota</th>
+            <th>Fiyat</th>
+            <th>Süre</th>
+            <th>Kategori</th>
+            <th>Eğitmen</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var education in Model)
+        {
+            <tr>
+                <td>@education.Name</td>
+                <td>@education.Quota</td>
+                <td>@education.Price</td>
+                <td>@education.Duration</td>
+                <td>@education.CategoryFullName</td>
+                <td>@education.InstructorFullName</td>
+                <td>
+                    <form asp-action="UnregisterFromEducation" method="post">
+                        <input type="hidden" name="educationId" value="@education.Id" />
+                        <button type="submit" class="btn btn-danger">Kaydı Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <a href="@Url.Action("AvailableEducations", "Student")" class="btn btn-primary">Kaydolmadığım Eğitimlere Git</a>
+
+</table>

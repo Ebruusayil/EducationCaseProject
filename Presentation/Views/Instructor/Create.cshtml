@@ -1,0 +1,46 @@
+﻿@model Dto.InstructorDto
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Instructor</title>
+    <link href="~/css/form.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Create Instructor</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <form method="post">
+        <div>
+            <label for="Name">Name:</label>
+            <input type="text" asp-for="FullName" placeholder="Instructor Name" required />
+        </div>
+        
+
+        <div>
+            <label for="UserId">User ID:</label>
+            <input type="number" asp-for="UserId" placeholder="User ID" required />
+        </div>
+
+        <div>
+            <label for="InstructorTypeId">Instructor Type:</label>
+            <select asp-for="InstructorTypeId" asp-items="ViewBag.InstructorTypes"></select>
+        </div>
+
+        <div>
+            <button type="submit">Create Instructor</button>
+        </div>
+    </form>
+</body>
+</html>

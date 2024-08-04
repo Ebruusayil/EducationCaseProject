@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Education Portal</title>
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-left">
+                
+                <nav class="main-nav">
+                    <a href="@Url.Action("Index", "Home")">Ana Sayfa</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Teacher"))
+                        {
+                            <a href="@Url.Action("Create", "Education")">Eğitim Ekle</a>
+                        }
+                        else if (User.IsInRole("Student"))
+                        {
+                            <a href="@Url.Action("AvailableEducations", "Student")">Eğitimler</a>
+                        }
+                    }
+                </nav>
+            </div>
+            <div class="header-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="user-info">
+                        <span>Merhaba, @User.Identity.Name</span>
+                        <a href="@Url.Action("UpdateProfile", "Account")" class="profile-link">Profil</a>
+                        <form method="post" action="@Url.Action("Logout", "Account")" class="logout-form">
+                            <button type="submit" class="logout-button">Çıkış Yap</button>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <a href="@Url.Action("Index", "Login")" class="login-link">Giriş Yap</a>
+                }
+            </div>
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+</body>
+</html>

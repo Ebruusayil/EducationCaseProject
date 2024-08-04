@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Dto.EducationDto>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eğitimler</title>
+    <link href="~/css\education.css" rel="stylesheet" />
+   
+</head>
+
+<body>
+    <h1>Eğitimler</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Adı</th>
+            <th>Kota</th>
+            <th>Fiyat</th>
+            <th>Süre</th>
+            <th>Eğitimci</th>
+            <th>Kategori</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var education in Model)
+            {
+                <tr>
+                    <td>@education.Name</td>
+                    <td>@education.Quota</td>
+                    <td>@education.Price</td>
+                    <td>@education.Duration</td>
+                    <td>@education.InstructorFullName</td>
+                    <td>@education.CategoryFullName</td>
+                 @*    <td>
+                        <form asp-action="RegisterForEducation" method="post">
+                            <input type="hidden" name="educationId" value="@education.Id" />
+                            <button type="submit" class="btn btn-primary">Kaydol</button>
+                        </form>
+                    </td> *@
+                </tr>
+            }
+                        <a href="@Url.Action("Create", "Education")" class="btn btn-primary">Eğitim Ekle</a>
+
+</body>
+
+
+</html>

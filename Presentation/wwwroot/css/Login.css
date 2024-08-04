@@ -1,0 +1,80 @@
+﻿<style >
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.w3layoutscontaineragileits {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+    input[type="submit"] {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+.text-white {
+    color: #ff0000;
+    margin-bottom: 15px;
+}
+
+.aitssendbuttonw3ls {
+    text-align: center;
+}
+
+    .aitssendbuttonw3ls p {
+        margin-top: 15px;
+    }
+
+    .aitssendbuttonw3ls a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .aitssendbuttonw3ls a:hover {
+            text-decoration: underline;
+        }
+
+</style >

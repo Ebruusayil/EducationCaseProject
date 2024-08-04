@@ -1,0 +1,72 @@
+﻿@model Dto.RegisterDto
+
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Portal Sign Up Page</title>
+    <link href="~/css/login.css" rel="stylesheet" />
+    <link href="~/css/register.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Education Portal Sign Up Page</h1>
+    <div class="w3layoutscontaineragileits">
+        <h2>New Member</h2>
+        <form method="post">
+            <input type="text" asp-for="FullName" placeholder="Adınız" required>
+            <input type="text" asp-for="Username" placeholder="Kullanıcı Adınız" required>
+            <input type="email" asp-for="Email" placeholder="Mail Adresiniz" required>
+            <input type="password" asp-for="Password" placeholder="Şifreniz" required>
+            <input type="password" asp-for="ConfirmPassword" placeholder="Şifrenizi Tekrar Giriniz" required>
+
+            <!-- Role Selection Dropdown -->
+            <select asp-for="Role" class="form-control" required>
+                <option value="">Rol Seçiniz</option>
+                <option value="Student">Öğrenci</option>
+                <option value="Teacher">Eğitmen</option>
+                <option value="Admin">Admin</option>
+            </select>
+
+            <div class="text-white" asp-validation-summary="ModelOnly"></div>
+            <br><br>
+            <ul class="agileinfotickwthree">
+                <li>
+                    <input type="checkbox" id="brand1" required>
+                    <label for="brand1"><span></span>Kullanım Şartlarını Okudum</label>
+                </li>
+            </ul>
+            <div class="aitssendbuttonw3ls">
+                <input type="submit" value="Kayıt Ol">
+                <p>Ana Sayfaya Dön <span>→</span> <a class="w3_play_icon1" href="">Education Portal</a></p>
+                <a href="@Url.Action("Index", "Login")">Bir Hesabınız Var mı?</a>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </div>
+
+    <script src="~/register/js/jquery-2.1.4.min.js"></script>
+    <script src="~/register/js/jquery.magnific-popup.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+        });
+    </script>
+</body>
+
+</html>
